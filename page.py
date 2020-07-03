@@ -1,8 +1,12 @@
 from locator import *
 from element import BasePageElement
 from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support import expected_conditions as ec
+
+
 
 
 class BasePage(object):
@@ -39,3 +43,8 @@ class MainPage(BasePage):
 
     def submit_search(self, *locator):
         submit_search = self.driver.find_element(*MainPageLocators.SEARCH_BUTTON).click()
+
+
+
+
+

@@ -7,6 +7,7 @@ from unittest.suite import TestSuite
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support import expected_conditions as ec
 from page import *
 
 
@@ -14,7 +15,9 @@ from page import *
 class SpecifyChildNumber(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome('/Applications/chromedriver')
+        self.driver.implicitly_wait(10)
         self.driver.get("https://www.booking.com/")
+
 
     def test_specify_child_number(self):
         mainPage = page.MainPage(self.driver)
@@ -23,7 +26,9 @@ class SpecifyChildNumber(unittest.TestCase):
         if mainPage.children_label():
             assert True
 
-        time.sleep(5)
+
+
+
 
     def tearDown(self):
             self.driver.close()
